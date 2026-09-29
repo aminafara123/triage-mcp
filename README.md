@@ -16,16 +16,28 @@ It answers questions like "whats waiting for review?" or "what did I reject this
 ## Setup
 
 ```bash
+pipx install triage-mcp
+```
+
+`uvx triage-mcp` works too if you prefer no install. Hacking on a clone instead:
+
+```bash
 python3 -m venv .venv
 .venv/bin/pip install mcp
 ```
 
-It reads `~/aiProjects/aminWork/automation-portfolio/ai-triage-agent/`. Change `DATA_DIR` at the top of `server.py` if your copy lives somewhere else.
+It reads `~/aiProjects/aminWork/automation-portfolio/ai-triage-agent/`. Point `TRIAGE_DATA_DIR` at your own data folder if your copy lives somewhere else.
 
 Wire it into Claude Code:
 
 ```bash
-claude mcp add triage -- /path/to/triage-mcp/.venv/bin/python /path/to/triage-mcp/server.py
+claude mcp add triage -- triage-mcp
+```
+
+Running from a clone, point it at the venv instead:
+
+```bash
+claude mcp add triage -- /path/to/triage-mcp/.venv/bin/python /path/to/triage-mcp/triage_mcp.py
 ```
 
 ## Demo

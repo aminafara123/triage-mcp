@@ -5,12 +5,13 @@ Exposes the triage queue and the human decision log as read-only tools
 any MCP-capable model can call. What is waiting for review, what got
 approved or rejected, and why.
 
-Run (stdio):  python server.py
+Run (stdio):  triage-mcp
 Wire into Claude Code:
-  claude mcp add triage -- /path/to/.venv/bin/python /path/to/server.py
+  claude mcp add triage -- triage-mcp
 """
 
 import json
+import os
 import re
 from collections import Counter
 from pathlib import Path
@@ -18,7 +19,7 @@ from pathlib import Path
 from mcp.server.mcpserver import MCPServer
 from mcp.types import ToolAnnotations
 
-DATA_DIR = Path.home() / "aiProjects/aminWork/automation-portfolio/ai-triage-agent"
+DATA_DIR = Path(os.environ.get("TRIAGE_DATA_DIR", Path.home() / "aiProjects/aminWork/automation-portfolio/ai-triage-agent"))
 CAP = 25
 
 server = MCPServer(
@@ -166,5 +167,9 @@ def search_decisions(query: str) -> str:
             + _capped([_fmt_decision(d) for d in hits]))
 
 
-if __name__ == "__main__":
+def main():
     server.run()
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "triage-mcp"
+version = "1.0.1"
+description = "MCP server over a support ticket triage queue: four read-only tools for pending reviews and the decision log"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Al Amin Bashir Afara"}]
+requires-python = ">=3.10"
+dependencies = ["mcp"]
+keywords = ["mcp", "ticket-triage", "support-tickets", "helpdesk", "human-in-the-loop", "audit-log"]
+
+[project.urls]
+Homepage = "https://github.com/aminafara123/triage-mcp"
+Repository = "https://github.com/aminafara123/triage-mcp"
+
+[project.scripts]
+triage-mcp = "triage_mcp:main"
+
+[tool.setuptools]
+py-modules = ["triage_mcp"]

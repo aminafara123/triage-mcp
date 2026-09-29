@@ -4,7 +4,7 @@ import json
 import tempfile
 from pathlib import Path
 
-import server
+import triage_mcp as server
 
 
 def _ticket(rid, prio, cat, summary):
