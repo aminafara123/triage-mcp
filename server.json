@@ -1,0 +1,29 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.aminafara123/triage-mcp",
+  "description": "MCP server over my AI ticket triage queue: four read-only tools for the queue and human decision log",
+  "repository": {
+    "url": "https://github.com/aminafara123/triage-mcp",
+    "source": "github"
+  },
+  "version": "1.0.1",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "triage-mcp",
+      "version": "1.0.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "TRIAGE_DATA_DIR",
+          "description": "Folder of the ai-triage-agent (pending/ and decisions.jsonl). Defaults to the author's local path.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}

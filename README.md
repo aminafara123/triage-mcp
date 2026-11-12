@@ -1,5 +1,7 @@
 # triage-mcp
 
+<!-- mcp-name: io.github.aminafara123/triage-mcp -->
+
 An MCP server over my [ai-triage-agent](https://github.com/aminafara123/ai-triage-agent) queue. A local LLM classifies support tickets and drafts replies, a human approves or rejects every one, and this server lets any MCP-capable AI client read that queue and the decision log.
 
 It answers questions like "whats waiting for review?" or "what did I reject this week and why?" straight from the files the agent writes. Four tools, all read-only. The model can look at the queue but it cant approve, reject or send anything.
